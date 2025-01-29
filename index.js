@@ -1,21 +1,36 @@
 const gridContainer = document.querySelector(".grid-container");
 
+const selectedArtist = document.querySelector("#artist");
+
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;
 
+
 // Update score
 document.querySelector(".score").textContent = score;
 
-// Fetch cards data, depending on selection
-fetch("./data/cards.json")
-    .then((res) => res.json())
-    .then((data) => {
-        cards = [...data, ...data];
-        shuffleCards();
-        generateCards();
-    });
+
+
+selectedArtist.addEventListener("change", (event) => {
+    artist = event.target.value;  // Get the selected value
+    fetchData(artist);  // Fetch the data based on selected artist
+});
+
+function fetchData(artist) {
+    fetch(`./data/${artist}.json`)
+        .then((res) => res.json())
+        .then((data) => {
+            cards = [...data, ...data]; // Duplicate the cards for matching pairs
+            shuffleCards();
+            generateCards();
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+        });
+}
+
 
 function shuffleCards() {
     let currentIndex = cards.length,
@@ -31,6 +46,7 @@ function shuffleCards() {
 }
 
 function generateCards() {
+    gridContainer.innerHTML = "";
     for (let card of cards) {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
@@ -100,3 +116,8 @@ function restart() {
     gridContainer.innerHTML = "";
     generateCards();
 }
+
+window.addEventListener("load", () => {
+    // Trigger the change event to fetch the data for the default selected artist
+    selectedArtist.dispatchEvent(new Event("change"));
+});

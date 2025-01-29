@@ -17,6 +17,11 @@ p {
     font-weight: bold;
 }
 
+.selector {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
 .actions {
     display: flex;
     justify-content: center;
