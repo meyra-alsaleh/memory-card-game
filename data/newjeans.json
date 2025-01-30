@@ -1,0 +1,38 @@
+[
+    {
+        "image": "../assets/newjeans/1.png",
+        "name": "xxx"
+    },
+    {
+        "image": "../assets/newjeans/2.png",
+        "name": "aaa"
+    },
+    {
+        "image": "../assets/newjeans/3.png",
+        "name": "sss"
+    },
+    {
+        "image": "../assets/newjeans/4.png",
+        "name": "bbb"
+    },
+    {
+        "image": "../assets/newjeans/5.png",
+        "name": "nnn"
+    },
+    {
+        "image": "../assets/newjeans/6.png",
+        "name": "ccc"
+    },
+    {
+        "image": "../assets/newjeans/7.png",
+        "name": "rrr"
+    },
+    {
+        "image": "../assets/newjeans/8.png",
+        "name": "ppp"
+    },
+    {
+        "image": ".s./assets/newjeans/9.png",
+        "name": "eee"
+    }
+]

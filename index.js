@@ -1,23 +1,30 @@
 const gridContainer = document.querySelector(".grid-container");
 
-const selectedArtist = document.querySelector("#artist");
-
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;
 
+//Default artist cards
+const selectedArtist = document.querySelector("#artist");
 
 // Update score
 document.querySelector(".score").textContent = score;
 
-
-
+/** 
+ * Adding an event listener that fetches the data for the selected artist. 
+ * The game is restarted if another artist is selected 
+ */
 selectedArtist.addEventListener("change", (event) => {
-    artist = event.target.value;  // Get the selected value
-    fetchData(artist);  // Fetch the data based on selected artist
+    artist = event.target.value;
+    restart();
+    fetchData(artist);
 });
 
+/**
+ * Fetching the data for the selected artist.
+ * @param artist 
+ */
 function fetchData(artist) {
     fetch(`./data/${artist}.json`)
         .then((res) => res.json())
@@ -31,7 +38,7 @@ function fetchData(artist) {
         });
 }
 
-
+// Cards shuffling functionality using Fisher–Yates shuffle algorithm
 function shuffleCards() {
     let currentIndex = cards.length,
         randomIndex,
@@ -45,8 +52,9 @@ function shuffleCards() {
     }
 }
 
+// Generating cards by creating a div element for each card
 function generateCards() {
-    gridContainer.innerHTML = "";
+    gridContainer.innerHTML = "";   // Clean board for each new game
     for (let card of cards) {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
@@ -62,6 +70,7 @@ function generateCards() {
     }
 }
 
+// Flip cards and check for card matches
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -81,9 +90,9 @@ function flipCard() {
     checkForMatch();
 }
 
+// Comparing first and second flipped cards
 function checkForMatch() {
     let isMatch = firstCard.dataset.name === secondCard.dataset.name;
-
     isMatch ? disableCards() : unflipCards();
 }
 
@@ -117,7 +126,7 @@ function restart() {
     generateCards();
 }
 
+// Trigger the change event to fetch the data for the default selected artist
 window.addEventListener("load", () => {
-    // Trigger the change event to fetch the data for the default selected artist
     selectedArtist.dispatchEvent(new Event("change"));
 });
