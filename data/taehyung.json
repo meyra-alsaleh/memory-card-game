@@ -1,38 +1,38 @@
 [
     {
-        "image": "../assets/emoji/1.png",
+        "image": "../assets/taehyung/1.png",
         "name": "xxx"
     },
     {
-        "image": "../assets/emoji/2.png",
+        "image": "../assets/taehyung/2.png",
         "name": "aaa"
     },
     {
-        "image": "../assets/emoji/3.png",
+        "image": "../assets/taehyung/3.png",
         "name": "sss"
     },
     {
-        "image": "../assets/emoji/4.png",
+        "image": "../assets/taehyung/4.png",
         "name": "bbb"
     },
     {
-        "image": "../assets/emoji/5.png",
+        "image": "../assets/taehyung/5.png",
         "name": "nnn"
     },
     {
-        "image": "../assets/emoji/6.png",
+        "image": "../assets/taehyung/6.png",
         "name": "ccc"
     },
     {
-        "image": "../assets/emoji/7.png",
+        "image": "../assets/taehyung/7.png",
         "name": "rrr"
     },
     {
-        "image": "../assets/emoji/8.png",
+        "image": "../assets/taehyung/8.png",
         "name": "ppp"
     },
     {
-        "image": ".s./assets/emoji/9.png",
+        "image": "../assets/taehyung/9.png",
         "name": "eee"
     }
 ]

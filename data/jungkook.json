@@ -32,7 +32,7 @@
         "name": "ppp"
     },
     {
-        "image": ".s./assets/jungkook/9.png",
+        "image": "../assets/jungkook/9.png",
         "name": "eee"
     }
 ]

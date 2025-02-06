@@ -3,13 +3,13 @@ const gridContainer = document.querySelector(".grid-container");
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
-let score = 0;
+let moves = 0;
 
 //Default artist cards
 const selectedArtist = document.querySelector("#artist");
 
-// Update score
-document.querySelector(".score").textContent = score;
+// Update moves
+document.querySelector(".moves").textContent = moves;
 
 /** 
  * Adding an event listener that fetches the data for the selected artist. 
@@ -83,8 +83,8 @@ function flipCard() {
     }
 
     secondCard = this;
-    score++;
-    document.querySelector(".score").textContent = score;
+    moves++;
+    document.querySelector(".moves").textContent = moves;
     lockBoard = true;
 
     checkForMatch();
@@ -120,8 +120,8 @@ function resetBoard() {
 function restart() {
     resetBoard();
     shuffleCards();
-    score = 0;
-    document.querySelector(".score").textContent = score;
+    moves = 0;
+    document.querySelector(".moves").textContent = moves;
     gridContainer.innerHTML = "";
     generateCards();
 }
